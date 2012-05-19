@@ -14,6 +14,8 @@ To install, either clone this repo or [download here](https://github.com/onecray
 
 To access your scratchpad via LaunchBar or similar, copy the Daily Log and Quick Note Applescripts somewhere they'll be noticed. For LaunchBar, that likely means `~/Library/Scripts/` or wherever you have configured it to look for Applescripts. If you are using QuickSilver, see the "Applescripts" page in the scratchpad for installation instructions.
 
+If you are still using VoodooPad 4 for whatever reason, you can find the original scratchpad document in the VoodooPad 4 folder.
+
 ## License
 
 The content and scripts in this template are distributed under an MIT license. VoodooPad, the VoodooPad file format, JSTalk, and similar are all rights reserved by [Flying Meat](http://flyingmeat.com/) and Gus Mueller. This project is in no way endorsed by or affiliated with Flying Meat, so if it melts your computer or something, don't go blaming Gus.
