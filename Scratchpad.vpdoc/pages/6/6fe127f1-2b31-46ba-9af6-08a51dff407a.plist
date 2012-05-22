@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>aliases</key>
+	<array>
+		<string>daily log applescript (quicksilver)</string>
+	</array>
+	<key>attributes</key>
+	<dict>
+		<key>documentBackgroundColor</key>
+		<data>
+		BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWE
+		AWMDhAJmZgEBhg==
+		</data>
+		<key>lastEditingComputerName</key>
+		<string>Squiddums</string>
+		<key>lastEditingUserName</key>
+		<string>Ian Beck</string>
+		<key>meta.VPDirectWriteOnHTMLExport</key>
+		<string>1</string>
+		<key>shouldHighlightLinks</key>
+		<false/>
+	</dict>
+	<key>categories</key>
+	<array>
+		<string>1341394b-289d-4397-9a6a-1cd11041bf4a</string>
+	</array>
+	<key>createdDate</key>
+	<date>2009-08-31T14:57:32Z</date>
+	<key>dataHash</key>
+	<string>2cd4e298c850d2b880dad7862c804b177ff14f7d</string>
+	<key>displayName</key>
+	<string>Resource_DailyLogQS</string>
+	<key>documentBackgroundColor</key>
+	<data>
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMDhAJm
+	ZgEBhg==
+	</data>
+	<key>encrypted</key>
+	<string>No</string>
+	<key>key</key>
+	<string>resource_dailylogqs</string>
+	<key>metaValues</key>
+	<dict>
+		<key>VPDirectWriteOnHTMLExport</key>
+		<string>1</string>
+	</dict>
+	<key>modifiedDate</key>
+	<date>2012-05-19T14:55:25Z</date>
+	<key>shouldHighlightLinks</key>
+	<string>Yes</string>
+	<key>skipOnExport</key>
+	<string>No</string>
+	<key>uti</key>
+	<string>public.utf8-plain-text</string>
+	<key>uuid</key>
+	<string>6fe127f1-2b31-46ba-9af6-08a51dff407a</string>
+	<key>version</key>
+	<integer>11</integer>
+</dict>
+</plist>

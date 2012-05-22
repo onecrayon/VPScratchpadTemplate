@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>aliases</key>
+	<array/>
+	<key>attributes</key>
+	<dict>
+		<key>documentBackgroundColor</key>
+		<data>
+		BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWE
+		AWMDhAJmZgEBhg==
+		</data>
+		<key>skipOnExport</key>
+		<true/>
+	</dict>
+	<key>categories</key>
+	<array>
+		<string>1341394b-289d-4397-9a6a-1cd11041bf4a</string>
+	</array>
+	<key>createdDate</key>
+	<date>2009-08-31T14:54:22Z</date>
+	<key>dataHash</key>
+	<string>ec1c1b4bfa0e2237e77ae2b20c8b5cb6cd0e01ee</string>
+	<key>displayName</key>
+	<string>VPNewPageTemplate</string>
+	<key>documentBackgroundColor</key>
+	<data>
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMDhAJm
+	ZgEBhg==
+	</data>
+	<key>encrypted</key>
+	<string>No</string>
+	<key>key</key>
+	<string>vpnewpagetemplate</string>
+	<key>metaValues</key>
+	<dict/>
+	<key>modifiedDate</key>
+	<date>2009-08-31T15:11:37Z</date>
+	<key>shouldHighlightLinks</key>
+	<string>Yes</string>
+	<key>skipOnExport</key>
+	<string>Yes</string>
+	<key>uti</key>
+	<string>com.apple.rtfd</string>
+	<key>uuid</key>
+	<string>e9211e1d-464c-4905-937d-d9f4802c1b2e</string>
+	<key>version</key>
+	<integer>11</integer>
+</dict>
+</plist>

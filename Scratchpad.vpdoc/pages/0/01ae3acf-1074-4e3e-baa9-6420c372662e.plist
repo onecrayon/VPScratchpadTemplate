@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>aliases</key>
+	<array/>
+	<key>attributes</key>
+	<dict/>
+	<key>categories</key>
+	<array/>
+	<key>createdDate</key>
+	<date>2009-08-31T15:06:26Z</date>
+	<key>dataHash</key>
+	<string>2ffad83fa45afb22917929ca6096748c11580386</string>
+	<key>displayName</key>
+	<string>Quicksilver</string>
+	<key>encrypted</key>
+	<string>No</string>
+	<key>key</key>
+	<string>quicksilver</string>
+	<key>metaValues</key>
+	<dict/>
+	<key>modifiedDate</key>
+	<date>2009-08-31T15:06:26Z</date>
+	<key>shouldHighlightLinks</key>
+	<string>Yes</string>
+	<key>skipOnExport</key>
+	<string>No</string>
+	<key>uti</key>
+	<string>com.fm.url</string>
+	<key>uuid</key>
+	<string>01ae3acf-1074-4e3e-baa9-6420c372662e</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>

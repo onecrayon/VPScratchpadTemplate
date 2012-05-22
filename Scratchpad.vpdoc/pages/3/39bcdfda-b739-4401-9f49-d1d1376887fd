@@ -1,0 +1,189 @@
+// Utility functions
+function scratchpad_timestamp() {
+	var now = new Date(),
+		days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+		months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+		hours = now.getHours(),
+		minutes = now.getMinutes(),
+		ampm = (now.getHours() < 12 ? 'AM' : 'PM');
+	if (hours === 0) {
+		hours = 12;
+	} else if (hours > 12) {
+		hours -= 12;
+	}
+	if (String(hours).length < 2) {
+		hours = '0' + hours;
+	}
+	if (String(minutes).length < 2) {
+		minutes = '0' + minutes;
+	}
+	return days[now.getDay()] + '. ' + months[now.getMonth()] + ' ' + now.getDate() + ', ' + now.getFullYear() + ' ' + hours + ':' + minutes + ' ' + ampm;
+}
+
+function page_relationship(benchmark, current) {
+	// Returns 1 (current falls after benchmark), 0 (same page or undefined),
+	// or -1 (current falls before)
+	if (benchmark == current || benchmark === null) {
+		// Benchmark === null: this means it isn't defined, so we return 0
+		// because it always evaluates as "include the page" since all our
+		// checks are inclusive
+		return 0;
+	}
+	var sorted = [benchmark, current];
+	sorted.sort();
+	if (sorted[0] == benchmark) {
+		return 1;
+	} else {
+		return -1;
+	}
+}
+
+// Universal function for auto-generating page contents
+function scratchpadAutogeneratePage(page, document) {
+	if (page.tagNames().containsObject_('tag') || page.tagNames().containsObject_('index') || page.tagNames().containsObject_('composite')) {
+		// Universal setup and logic checks
+		// Setup the "last updated" string
+		var curTime = scratchpad_timestamp(),
+			lastUpdated = "\n\n*Last updated " + curTime + "*",
+			// Set up the dynamic editing separator
+			dynamicSep = "========== Edit above this line only ==========",
+			sep = '\n\n',
+			// Setup common page info
+			pageName = page.displayName(),
+			pageContents = page.dataAsAttributedString().string(),
+			dynSepPos = pageContents.indexOf(dynamicSep),
+			content = '',
+			// Check for reversed sort order
+			desc = page.metaValueForKey_("sort") == "desc",
+			// Some random variables we use later
+			target, pages, tempPage, tempName, uuids, startRel, endRel;
+		// Set up a custom content separator, if specified
+		if (page.metaValueForKey_("separator")) {
+			sep = page.metaValueForKey_("separator").replace(/\\n/g, "\n");
+		}
+		if (sep.length === 0) {
+			lastUpdated += '\n\n';
+		}
+		// Check to see if the "edit above this line" stuff is in place
+		if (dynSepPos >= 0) {
+			content = pageContents.substring(0, dynSepPos + dynamicSep.length) + lastUpdated + sep;
+		} else {
+			// Set up the page title and top page text
+			content = pageName + "\n" + new Array(pageName.length + 1).join('=') + "\n\n\n\n" + dynamicSep + lastUpdated + sep;
+		}
+		
+		// composite and index-specific processing
+		if (page.tagNames().containsObject_('index') || page.tagNames().containsObject_('composite')) {
+			// This allows us to start at a given page
+			var startPage = null,
+				includePages = true;
+			if (page.metaValueForKey_("start")) {
+				startPage = page.metaValueForKey_("start");
+				includePages = false;
+			}
+			
+			var endPage = null;
+			if (page.metaValueForKey_("end")) {
+				endPage = page.metaValueForKey_("end");
+			}
+		}
+		
+		// tag-specific processing
+		if (page.tagNames().containsObject_('tag')) {
+			// List out the lines with the tag
+			pages = document.keys();
+			pages.sort();
+			if (page.metaValueForKey_("sort") == "desc") {
+				pages.reverse();
+			}
+			// Go through our pages and check for the tag
+			var tags, lines, splitlines, line, lowerPageName, splitRE;
+			for (var i = 0; i < pages.count(); i++) {
+				tempPage = document.pageForKey_(pages.objectAtIndex(i));
+				tags = tempPage.tagNames();
+				lowerPageName = String(pageName.lowercaseString());
+				splitRE = new RegExp('^.*?' + lowerPageName.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&') + '.*?$', 'gmi');
+				// Only check for tags if it's a page that's not excluded, a tag, index. or composite
+				if (tempPage.isText() && !tags.containsObject_('excluded') && !tags.containsObject_('tag') && !tags.containsObject_('index') && !tags.containsObject_('composite')) {
+					lines = "";
+					// Loop over the non-empty lines in this page and grab any with the given tag
+					splitlines = tempPage.stringData().match(splitRE);
+					if (splitlines && splitlines.length) {
+						for (var j = 0; j < splitlines.length; j++) {
+							line = splitlines[j];
+							lines += line.replace(/^\s*(.+?)\s*$/, '$1') + "\n\n";
+						}
+					}
+					// Add the page to our content if it has some instances of the tag
+					if (lines !== "") {
+						tempName = tempPage.displayName();
+						content += tempName + "\n" + new Array(tempName.length() + 1).join('-') + "\n\n" + lines + sep;
+					}
+				}
+			}
+		} else if (page.tagNames().containsObject_('index')) {
+			// Grab the target tag
+			target = page.metaValueForKey_("indexedTag");
+			
+			// List out the pages with the tag
+			pages = [];
+			uuids = document.uuidsInTagName_(target);
+			for (var i = 0; i < uuids.count(); i++) {
+				tempPage = document.pageForUUID_(uuids.objectAtIndex_(i));
+				if (!tempPage.tagNames().containsObject_('excluded')) {
+					pages.push(tempPage.displayName());
+				}
+			}
+			pages.sort()
+			if (desc) {
+				pages.reverse();
+			}
+			for (var i = 0; i < pages.length; i++) {
+				tempName = pages[i];
+				startRel = page_relationship(startPage, tempName);
+				if ((!desc && startRel >= 0) || (desc && startRel <= 0)) {
+					includePages = true;
+				}
+				if (includePages) {
+					endRel = page_relationship(endPage, tempName);
+					if ((!desc && endRel > 0) || (desc && endRel < 0)) {
+						break;
+					}
+					content += "* " + tempName + "\n";
+				}
+			}
+		} else if (page.tagNames().containsObject_('composite')) {
+			target = page.metaValueForKey_("compositedTag");
+			
+			// List out the pages with the tag
+			pages = [];
+			uuids = document.uuidsInTagName_(target);
+			for (var i = 0; i < uuids.count(); i++) {
+				tempPage = document.pageForUUID_(uuids.objectAtIndex_(i));
+				if (!tempPage.tagNames().containsObject_('excluded')) {
+					pages.push(tempPage.displayName());
+				}
+			}
+			pages.sort();
+			if (desc) {
+				pages.reverse();
+			}
+			for (var i = 0; i < pages.length; i++) {
+				tempName = pages[i];
+				startRel = page_relationship(startPage, tempName);
+				if ((!desc && startRel >= 0) || (desc && startRel <= 0)) {
+					includePages = true;
+				}
+				if (includePages) {
+					endRel = page_relationship(endPage, tempName);
+					if ((!desc && endRel > 0) || (desc && endRel < 0)) {
+						break;
+					}
+					content += document.pageForKey_(tempName).dataAsAttributedString().string() + sep;
+				}
+			}
+		}
+		// Set the page contents!
+		page.setDataAsString_(content);
+	}
+}

@@ -1,0 +1,17 @@
+# How it all works
+
+@todo: update this once I've migrated the scripts to JS
+
+The best way to figure out what specifically your scratchpad is doing is to read through the script that's running the show:
+
+### Script_Autogenerate
+
+Whenever a page is opened, this Python script is executed (you can choose to execute it at other times if you so desire using the Event Scripts palette).  In essence, the script checks the page for the various tags, and if it has one of them parses through the document contents to auto-generate the page's contents.
+
+The autogenerate script is executed for all pages in the document when you do a web export, to make sure that things are up to date.  Thus if you need to regenerate all pages in the document, you can run a web export and just throw away the resulting folder of HTML files and all of your document's indices, tags, and composites will be up-to-date afterward.
+
+The auto-generation is supplemented by the Applescripts, which handle the automatic creation of textual tags and the selection of which page to append text to.
+
+### Script_WebProcessor
+
+Whenever you run a web export, this script strips out extraneous information such as page timestamps and "edit above this line" info.  If you wish to perform automatic content manipulation between your document and the web, modify this script.

@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>$displayName$ | $documentTitle$</title>
+	<style type="text/css" media="screen">
+	/* === RESET === */
+	/* Kudos, Eric Meyer, you rock */
+	
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, font, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		outline: 0;
+		font-weight: inherit;
+		font-style: inherit;
+		font-size: 100%;
+		font-family: inherit;
+		vertical-align: baseline;
+	}
+	
+	ol, ul {
+		list-style: none;
+	}
+	
+	table {
+		border-collapse: separate;
+		border-spacing: 0;
+	}
+	
+	caption, th, td {
+		text-align: left;
+		font-weight: normal;
+	}
+	
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: "";
+	}
+	
+	blockquote, q {
+		quotes: "" "";
+	}
+	
+	/* === GENERIC === */
+	
+	html {
+		background: #eee;
+	}
+	
+	/* 62.5% resets default pixel size from 16 to 10; easier to work in base 10 */
+	
+	body {
+		font: 62.5%/1 "Gill Sans", Helvetica, Arial, sans-serif;
+		text-align: center;
+	}
+	
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: bold;
+		line-height: 1.5;
+	}
+	
+	h1 {
+		font-size: 3em;
+		border-bottom: 7px solid #eee;
+		margin: 0 0 25px;
+	}
+	
+	h2 {
+		font-size: 2.6em;
+		border-top: 5px solid #eee;
+		margin: 25px 0 5px;
+		padding: 5px 0 0;
+	}
+	
+	h3 {
+		font-size: 2em;
+		border-top: 3px solid #eee;
+		margin: 20px 0 3px;
+		padding: 3px 0 0;
+	}
+	
+	h4 {
+		font-size: 1.8em;
+	}
+	
+	h5 {
+		font-size: 1.6em;
+		font-style: italic;
+	}
+	
+	h6 {
+		font-size: 1.6em;
+	}
+	
+	p, ul, ol, dl, pre {
+		font-size: 1.4em;
+		line-height: 1.5;
+		margin: 0 0 15px;
+	}
+	
+	ul, ol {
+		
+	}
+	
+	code {
+		font-family: Monaco, Courier, monospace;
+		background: #E6F2FF;
+	}
+	
+	p p, p ul, p ol, p dl,
+	ul p, ul ul, ul ol, ul dl,
+	ol p, ol ul, ol ol, ol dl,
+	dl p, dl ul, dl ol, dl dl {
+		font-size: 1em;
+	}
+	
+	ul {
+		list-style-type: disc;
+	}
+	
+	ul ul {
+		list-style-type: circle;
+	}
+	
+	ol {
+		list-style-type: decimal;
+	}
+	
+	li {
+		margin-bottom: 5px;
+	}
+	
+	dt {
+		font-weight: bold;
+		color: #aaa;
+		float: left;
+		clear: both;
+		min-width: 5.5em;
+		padding: 0 1em 0 0;
+		text-align: right;
+	}
+	
+	dd {
+		margin: 0 0 .5em 6.5em;
+		padding: 0 0 .5em;
+		border-bottom: 1px dotted #ddd;
+	}
+	
+	a:link, a:visited {
+		color: #0063d3;
+		text-decoration: none;
+	}
+	
+	a:hover, a:active {
+		text-decoration: underline;
+	}
+	
+	em {
+		font-style: italic;
+	}
+	
+	strong {
+		font-weight: bold;
+	}
+	
+	label {
+		display: block;
+	}
+	
+	hr {
+		margin: 0 0 15px;
+		border: none;
+		border-bottom: 3px solid #eee;
+	}
+	
+	/* === GENERAL CLASSES === */
+	
+	.left {
+		float: left;
+	}
+	
+	.right {
+		float: right;
+	}
+	
+	img.left {
+		margin: 0 10px 10px 0;
+	}
+	
+	img.right {
+		margin: 0 0 10px 10px;
+	}
+	
+	.clear {
+		clear: both;
+	}
+	
+	.cleared,
+	#header, #main, #footer {
+		zoom: 1;
+	}
+	
+	.cleared:after,
+	#header:after, #main:after, #footer:after {
+		content: ".";
+	    display: block;
+	    height: 0;
+	    clear: both;
+	    visibility: hidden;
+	}
+	
+	.center {
+		text-align: center;
+	}
+	
+	.alignleft {
+		text-align: left;
+	}
+	
+	.alignright {
+		text-align: right;
+	}
+	
+	.columnar {
+		-moz-column-count: 3;
+		-moz-column-gap: 20px;
+		-webkit-column-count: 3;
+		-webkit-column-gap: 20px;
+		column-count: 3;
+		column-gap: 20px;
+	}
+	
+	/* === LAYOUT === */
+	
+	#page {
+		margin: 0 auto;
+		text-align: left;
+		width: 56em;
+		padding: 0 0 15px;
+		background: #fff;
+		border-left: 2px solid #e6e6e6;
+		border-right: 2px solid #e6e6e6;
+		border-bottom: 2px solid #e6e6e6;
+	}
+	
+	#header {
+		padding: 1em 0;
+		background: #f5f5f5;
+	}
+	
+	#header a {
+		color: #999;
+	}
+	
+	#header ul {
+		list-style-type: none;
+		margin: 0 2.85em;
+		
+	}
+	
+	#header li {
+		float: left;
+		margin: 0 15px 0 0;
+	}
+	
+	#header li:after {
+		content: "|";
+		color: #999;
+		padding: 0 0 0 15px;
+	}
+	
+	#header li.last:after {
+		content: '';
+		padding: 0;
+	}
+	
+	#main {
+		padding: 15px 4em;
+	}
+	
+	#footer {
+		
+	}
+	</style>
+</head>
+<body>
+	<div id="page">
+		<div id="header">
+			<ul>
+				<li><strong><a href="index.html">Home</a></strong></li>
+				<li><a href="index_%20inboxes.html">Inboxes</a></li>
+				<li><a href="index_%20tags.html">Tags</a></li>
+				<li class="last"><a href="index_%20logs.html">Logs</a></li>
+			</ul>
+		</div>
+		<div id="main">
+			$page$
+		</div>
+		<div id="footer">
+			
+		</div>
+	</div>
+</body>
+</html>

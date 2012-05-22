@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>aliases</key>
+	<array/>
+	<key>attributes</key>
+	<dict>
+		<key>documentBackgroundColor</key>
+		<data>
+		BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWE
+		AWMDhAJmZgEBhg==
+		</data>
+		<key>meta.compositedTag</key>
+		<string>log</string>
+	</dict>
+	<key>categories</key>
+	<array>
+		<string>76903918-6e8f-416c-9d75-0ba6bc7ecdf0</string>
+	</array>
+	<key>createdDate</key>
+	<date>2009-08-31T15:27:21Z</date>
+	<key>dataHash</key>
+	<string>ed5dd05b11f1465fdfd73a2cbb805dafa1cabf70</string>
+	<key>displayName</key>
+	<string>Composite: Logs</string>
+	<key>documentBackgroundColor</key>
+	<data>
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMDhAJm
+	ZgEBhg==
+	</data>
+	<key>encrypted</key>
+	<string>No</string>
+	<key>key</key>
+	<string>composite: logs</string>
+	<key>metaValues</key>
+	<dict>
+		<key>compositedTag</key>
+		<string>log</string>
+	</dict>
+	<key>modifiedDate</key>
+	<date>2012-05-22T16:18:25Z</date>
+	<key>shouldHighlightLinks</key>
+	<string>Yes</string>
+	<key>skipOnExport</key>
+	<string>No</string>
+	<key>uti</key>
+	<string>public.utf8-plain-text</string>
+	<key>uuid</key>
+	<string>cc421226-9a88-4aaa-a4c1-12ea3c726e80</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>

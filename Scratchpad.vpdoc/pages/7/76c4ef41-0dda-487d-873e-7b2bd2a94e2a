@@ -1,0 +1,15 @@
+# Applescripts for your scratchpad
+
+Below you will find the Applescripts necessary to work with your scratchpad.  To install them, copy and paste the Applescript text into your favorite editor (Script Editor is a good choice and is bundled with Mac OS X; I also recommend Script Debugger, although it's fairly expensive), and save them somewhere Quicksilver or LaunchBar will detect them.  It doesn't matter where you put the scripts, but here are some popular locations (~/ is shorthand for your home folder):
+
+	~/Library/Scripts/Applications/VoodooPad/
+	~/Library/Application Support/VoodooPad/Scripts/
+
+Make sure that your document has the word "scratchpad" (capitalization doesn't matter) somewhere in its title, or the Applescripts will not be able to locate the proper document.  The basic logic of the scripts is "find the open VoodooPad document whose name contains 'scratchpad' and append the text to it".
+
+Available Applescripts:
+
+* Daily Log Applescript
+* Daily Log Applescript (Quicksilver)
+* Quick Note Applescript
+* Quick Note Applescript (Quicksilver)

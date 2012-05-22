@@ -1,0 +1,132 @@
+# VERSION: 1.0
+
+# Universal page reference variables
+page = eventDictionary['item']
+document = windowController.document()
+
+# Page sorting checks
+def page_relationship(benchmark, current):
+    # Returns 1 (current falls after benchmark), 0 (same page or undefined),
+    # or -1 (current falls before)
+    if benchmark == current or benchmark is None:
+        # Benchmark == None: this means it isn't defined, so we return 0
+        # because it always evaluates as "include the page" since all our
+        # checks are inclusive
+        return 0
+    sorted = [benchmark, current]
+    sorted.sort()
+    if sorted[0] == benchmark:
+        return 1
+    else:
+        return -1
+
+if "tag" in page.tagNames() or "index" in page.tagNames() or \
+   "composite" in page.tagNames():
+    # Universal setup and logic checks
+    import time
+    # Setup the updated string
+    curTime = time.strftime("%a. %b %d, %Y %I:%M %p")
+    lastUpdated = "\n\n*Last updated " + curTime + "*\n\n"
+    # Set up the dynamic editing separator
+    dynamicSep = "========== Edit above this line only =========="
+    # Set up the default content separator
+    if page.metaValueForKey_("separator"):
+        sep = string.replace(page.metaValueForKey_("separator"), r'\n', "\n")
+    else:
+        sep = "\n\n"
+    
+    # Check to see if the "edit above this line" stuff is in place
+    pageName = page.displayName()
+    pageContents = page.dataAsAttributedString().string()
+    dynSepPos = pageContents.find(dynamicSep)
+    if (dynSepPos >= 0):
+        content = pageContents[:dynSepPos+len(dynamicSep)] + lastUpdated + sep
+    else:
+        # Set up the page title and top page text
+        content = pageName + "\n" + "="*len(pageName) + "\n\n\n\n" + \
+                  dynamicSep + lastUpdated + sep
+    # Check for reversed sort order
+    desc = True if page.metaValueForKey_("sort") == "desc" else False
+    
+    # composite and index-specific processing
+    if "index" in page.tagNames() or "composite" in page.tagNames():
+        # This allows us to start at a given page
+        if page.metaValueForKey_("start"):
+            startPage = page.metaValueForKey_("start")
+            includePages = False
+        else:
+            startPage = None
+            includePages = True
+        
+        if page.metaValueForKey_("end"):
+            endPage = page.metaValueForKey_("end")
+        else:
+            endPage = None
+    
+    # tag-specific processing
+    if "tag" in page.tagNames():
+        # List out the lines with the tag
+        pages = []
+        pages = document.keys()
+        pages.sort()
+        if page.metaValueForKey_("sort") == "desc":
+            pages.reverse()
+        for key in pages:
+            tempPage = document.pageForKey_(key)
+            tags = tempPage.tagNames()
+            if (tempPage.uti() == "com.fm.page") & ~("excluded" in tags) & \
+               ~("tag" in tags) & ~("index" in tags) & ~("composite" in tags):
+                attString = tempPage.dataAsAttributedString()
+                lines = ""
+                for line in attString.mutableString().splitlines():
+                    if line.lower().find(pageName.lower()) >= 0:
+                        lines += line.strip() + "\n\n"
+                if lines != "":
+                    tempName = tempPage.displayName()
+                    content += tempName + "\n" + "-"*len(tempName) + "\n\n" + \
+                               lines + sep
+    elif "index" in page.tagNames():
+        # Grab the target tag
+        target = page.metaValueForKey_("indexedTag")
+        
+        # List out the pages with the tag
+        pages = []
+        for pageUUID in document.uuidsInTagName_(target):
+            tempPage = document.pageForUUID_(pageUUID)
+            if not "excluded" in tempPage.tagNames():
+                pages.append(tempPage.displayName())
+        pages.sort()
+        if desc:
+            pages.reverse()
+        for tempName in pages:
+            startRel = page_relationship(startPage, tempName)
+            if (not desc and startRel >= 0) or (desc and startRel <= 0):
+                includePages = True
+            if includePages:
+                endRel = page_relationship(endPage, tempName)
+                if (not desc and endRel > 0) or (desc and endRel < 0):
+                    break
+                content += "* " + tempName + "\n"
+    elif "composite" in page.tagNames():
+        target = page.metaValueForKey_("compositedTag")
+        
+        # List out the pages with the tag
+        pages = []
+        for pageUUID in document.uuidsInTagName_(target):
+            tempPage = document.pageForUUID_(pageUUID)
+            if not "excluded" in tempPage.tagNames():
+                pages.append(tempPage.displayName())
+        pages.sort()
+        if desc:
+            pages.reverse()
+        for tempName in pages:
+            startRel = page_relationship(startPage, tempName)
+            if (not desc and startRel >= 0) or (desc and startRel <= 0):
+                includePages = True
+            if includePages:
+                endRel = page_relationship(endPage, tempName)
+                if (not desc and endRel > 0) or (desc and endRel < 0):
+                    break
+                content += document.pageForKey_(tempName).dataAsAttributedString().string() + sep
+    # Set the page contents!
+    page.setDataAsString_(content)

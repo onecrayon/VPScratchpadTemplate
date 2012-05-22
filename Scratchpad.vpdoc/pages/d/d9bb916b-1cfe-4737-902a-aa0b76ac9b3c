@@ -1,0 +1,24 @@
+# Limitations and troubleshooting
+
+@todo: update this info once I have converted the scripts to JS
+
+Having trouble with your scratchpad?  Here are some quirks that you should know about, and steps to fix some common problems.
+
+
+**I created an inbox, but it isn't showing up in the Quick Note list!**  
+Due to limitations in VoodooPad, the list of available inboxes is populated from the Inboxes Index page.  Make sure to reopen the Inboxes Index page whenever you've added an inbox to keep the list up-to-date.
+
+
+**My indices, composites, or tag pages are never up to date!**  
+The most efficient way to generate the content for indices, composites, and tag pages that I could find was to generate it when the page is opened.  However, this means that if you leave them open they will grow out of date as you add more content to your scratchpad.  Try to form the habit of keeping your indices and so forth closed until you need them.  If you're ever in doubt about whether an auto-generated page is the most recent version, the top of the page has a timestamp when the page was last generated.
+
+
+**It takes forever to open an index or composite page!**  
+If you have a large scratchpad, indices, composites, and tag pages may take some time to generate.  For indices and composites, you may be able to improve your scratchpad's performance by setting the "start" and "end" meta keys to limit the number of pages being displayed.  See advanced usage for more information.
+
+
+**The Applescripts aren't working!**  
+Sometimes Applescripts compiled on one computer won't work on another.  Visit the Applescripts page for information on how to save your own copies.
+
+**My tag pages aren't auto-generating and web export doesn't work!**  
+One of the few things that doesn't get synchronized are your event script settings for your document.  If you are having trouble getting your tags and other auto-generated content to work, check Event Scripts in the palette and make sure that Script_Autogenerate is assigned to the "Page opened" event and Script_WebProcessor is assigned to the "Web export will markup page" event.

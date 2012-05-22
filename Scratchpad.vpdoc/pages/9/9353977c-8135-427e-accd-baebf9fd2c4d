@@ -1,0 +1,55 @@
+# About this scratchpad
+
+**This scratchpad requires VoodooPad 5.0+**
+
+This scratchpad was designed to allow you to easily store and retrieve information using enriched plain text.
+
+Ideally, you should never need to activate the scratchpad itself to enter information.  Instead, use the Applescripts to update the scratchpad via LaunchBar or Quicksilver.  Only when you need to access the information that you stored should you need to bring the scratchpad to the foreground.
+
+Below you will find information on basic usage of this scratchpad, but you may also be interested in:
+
+* Limitations and troubleshooting
+* Advanced usage
+* Updating your scratchpad (for use with VoodooPad 5)
+
+## Storage
+
+Most of the items you'll add to your scratchpad will go into your daily logs.  To add a timestamped comment to your logs, first install the Daily Log Applescript (see Applescripts for installation instructions) and make sure that it is indexed by your preferred launcher program. I recommend LaunchBar, but Quicksilver will also work; if you prefer to invoke the script manually by hotkey, check out the excellent FastScripts.
+
+Invoke the script, type your log message, and hit return to have it automatically appended as a timestamped entry to your current day's log.  You may also use textual tags within your log messages; for example if you log this:
+
+	Finished work on @ACME website
+
+The text @ACME will be converted into a special tag page (if the page doesn't already exist). Each time you open a tag page, it will automatically gather and display every line across the document that includes that textual tag.
+
+Your daily logs are a record of what you do and think throughout the day; the more often you update them, the more use they'll be.
+
+Depending on your workflow, you may also wish to add items outside of the daily logs.  To do this, use the Quick Note Applescript just like you would Daily Log.  You will be given the option to append your note to any page that has been designated an inbox (see the advanced usage section).  Just like daily log entries, you may also use textual tags.
+
+If you only have one inbox (which will be the case unless you've added some by hand), the Quick Note Applescript will automatically append your text to that inbox.
+
+If you wish, you may also use VoodooPad's Bucket feature to append text to any page.  However, please note that if you do so any new textual tags that you use will not be automatically enabled.
+
+
+## Retrieval
+
+Once you've spent some time logging your activities or thoughts and storing quick notes, you may need to access your information.  Your scratchpad offers several easy ways to retrieve information:
+
+1. Browse the document using the indices (by default, these are linked from the index page)
+2. Use textual tags to view related notes and logs
+3. Use VoodooPad's excellent built-in searching
+
+The various indices are automatically updated lists that link to the various logs, tag pages, and so forth in your document.  Indices are regenerated whenever you open them (note that "open" means the page was previously closed; if the page was already opened in a tab, it will not be regenerated).
+
+Whenever you log a thought or enter a quick note, your scratchpad will convert any textual tags into links to a special tag page.  Textual tags look like this: `@tag`; they start with the "at" symbol followed by any number of letters, numbers, or symbols (but no spaces!).  Tag pages display all lines in the document tagged with a specific tag, sorted by type.  Note that you may also create textual tags by hand if you do not wish to preface them with the @ symbol (see advanced usage).
+
+*Note:* your scratchpad has two types of tags.  The textual tags just described will be your primary way to organize information, but VoodooPad also has built-in "tags" that you can access via the palette and assign on a per-page basis.  Some special VoodooPad tags are used by the scratchpad (see advanced usage), but you may create your own for further organization if you wish.
+
+VoodooPad's searching is available using the Search box at the top right of the window.
+
+
+## Syncing and Web Export
+
+In addition to the features described above, your scratchpad can easily be synched between computers or accessed via the web (although you won't be able to edit it via the web).  To use synching, simply move your file into your Dropbox folder (or use any other service or tool that synchronizes files between computers, like git).
+
+Your scratchpad is also set up to easily allow you to export and share it via the web.  Simply follow the standard procedure for exporting a VoodooPad document, and select Markdown as your export format.  Logs will be automatically marked up using custom formatting.  Your results may vary if you specify an export plugin or any pre- or post-flight scripts.  If you wish to update or otherwise modify the look of your exported scratchpad feel free to edit the VPWebExportPageTemplate.

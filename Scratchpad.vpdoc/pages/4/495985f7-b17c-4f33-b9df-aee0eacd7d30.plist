@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>aliases</key>
+	<array>
+		<string>quick note applescript (quicksilver)</string>
+	</array>
+	<key>attributes</key>
+	<dict>
+		<key>documentBackgroundColor</key>
+		<data>
+		BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWE
+		AWMDhAJmZgEBhg==
+		</data>
+		<key>lastEditingComputerName</key>
+		<string>Squiddums</string>
+		<key>lastEditingUserName</key>
+		<string>Ian Beck</string>
+		<key>meta.VPDirectWriteOnHTMLExport</key>
+		<string>1</string>
+		<key>shouldHighlightLinks</key>
+		<false/>
+	</dict>
+	<key>categories</key>
+	<array>
+		<string>1341394b-289d-4397-9a6a-1cd11041bf4a</string>
+	</array>
+	<key>createdDate</key>
+	<date>2009-08-31T14:57:59Z</date>
+	<key>dataHash</key>
+	<string>cbf3b071368afaba13faffb336415574a1f58cec</string>
+	<key>displayName</key>
+	<string>Resource_QuickNoteQS</string>
+	<key>documentBackgroundColor</key>
+	<data>
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMDhAJm
+	ZgEBhg==
+	</data>
+	<key>encrypted</key>
+	<string>No</string>
+	<key>key</key>
+	<string>resource_quicknoteqs</string>
+	<key>metaValues</key>
+	<dict>
+		<key>VPDirectWriteOnHTMLExport</key>
+		<string>1</string>
+	</dict>
+	<key>modifiedDate</key>
+	<date>2012-05-19T14:56:06Z</date>
+	<key>shouldHighlightLinks</key>
+	<string>Yes</string>
+	<key>skipOnExport</key>
+	<string>No</string>
+	<key>uti</key>
+	<string>public.utf8-plain-text</string>
+	<key>uuid</key>
+	<string>495985f7-b17c-4f33-b9df-aee0eacd7d30</string>
+	<key>version</key>
+	<integer>13</integer>
+</dict>
+</plist>

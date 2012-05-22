@@ -1,0 +1,134 @@
+-- For info on installation, see the Applescripts page of the Scratchpad
+
+-- Scratchpad Quick Note (Quicksilver variant)
+-- A script by Ian Beck
+-- Part of the VoodooPad Scratchpad bundle
+-- https://github.com/onecrayon/VPScratchpadTemplate
+
+-- Our heavy lifter
+on make_quick_note(noteText)
+	-- Check to see if we've got text, ask for it if not
+	if noteText is equal to "" then
+		set question to display dialog ("Make a quick note:") default answer ""
+		set noteText to text returned of question
+	end if
+	-- Make sure that the Applescript dialog returned text
+	if noteText is equal to "" then
+		beep
+		return false
+	end if
+	
+	-- Find the Scratchpad
+	set scratchDoc to ""
+	tell application "VoodooPad"
+		-- This is the sketchiest stuff, so catch errors
+		try
+			set openDocs to documents
+			repeat with idx from 1 to number of items in openDocs
+				set docName to name of item idx of openDocs
+				if docName contains "scratchpad" then
+					set scratchDoc to item idx of openDocs
+					exit repeat
+				end if
+			end repeat
+		on error errStr number errNum
+			error errStr number errNum
+		end try
+		
+		if scratchDoc is not equal to "" then
+			set destPage to my choose_destination(scratchDoc)
+			if destPage is equal to "false" then
+				return false
+			end if
+			-- Add any textual tags
+			my initialize_text_tags(noteText, scratchDoc)
+			-- Set up the noteText end of string based on type of destination
+			set noteText to noteText & return & return
+			set pageText to text of page destPage of scratchDoc
+			set editMarker to "========== Edit above this line only =========="
+			if pageText contains editMarker then
+				-- Special case if there's non-editable areas
+				set offsetIndex to (offset of editMarker in pageText) - 1
+				set firstHalf to text 1 thru offsetIndex of pageText
+				set secondHalf to text offsetIndex thru (length of pageText) of pageText
+				set firstHalf to firstHalf & noteText
+				set pageText to firstHalf & secondHalf
+				set text of page destPage of scratchDoc to pageText as string
+			else
+				-- Append the text
+				tell page destPage of scratchDoc to append text noteText
+			end if
+		else
+			-- Couldn't find the scratchpad
+			display dialog "Error: Could not find your scratchpad; please make sure it is open and the only document with 'scratchpad' in the name."
+			return false
+		end if
+	end tell
+end make_quick_note
+
+-- This parses through the text and makes sure all textual tags exist
+on initialize_text_tags(logText, scratchDoc)
+	set tid to AppleScript's text item delimiters
+	set AppleScript's text item delimiters to {" "}
+	set logWords to text items of logText
+	repeat with idx from 1 to number of items in logWords
+		if item idx of logWords starts with "@" then
+			set curTag to item idx of logWords
+			tell application "VoodooPad"
+				try
+					-- If tag page doesn't exist, create it
+					if not (exists page curTag of scratchDoc) then
+						tell scratchDoc to create new page with name curTag with content ""
+						tell page curTag of scratchDoc to add category named "tag"
+					end if
+				on error errStr number errNum
+					error errStr number errNum
+				end try
+			end tell
+		end if
+	end repeat
+	set AppleScript's text item delimiters to tid
+end initialize_text_tags
+
+on choose_destination(scratchDoc)
+	-- Find all potential destinations
+	tell application "VoodooPad"
+		set indexList to text of page "index: inboxes" of scratchDoc
+	end tell
+	set pageList to my parse_page_list(indexList)
+	set defaultItem to item 1 of pageList
+	-- Choose destination from a list
+	set destPage to choose from list pageList with prompt "Choose destination:" default items defaultItem
+	return destPage as text
+end choose_destination
+
+on parse_page_list(pageText)
+	set tid to AppleScript's text item delimiters
+	set AppleScript's text item delimiters to {"
+"}
+	set returnList to {}
+	set pageLines to text items of pageText
+	repeat with lineText in pageLines
+		if lineText starts with "* " then
+			set the end of returnList to text 3 thru (count of lineText) of lineText
+		end if
+	end repeat
+	set AppleScript's text item delimiters to tid
+	return returnList
+end parse_page_list
+
+-- Quicksilver tie-in code
+using terms from application "Quicksilver"
+	on process text qsText
+		my make_quick_note(qsText)
+	end process text
+end using terms from
+
+-- LaunchBar tie-in function
+on handle_string(lbText)
+	my make_quick_note(lbText)
+	open location "x-launchbar:hide"
+end handle_string
+
+-- Call the function in case the script was run directly
+my make_quick_note("")

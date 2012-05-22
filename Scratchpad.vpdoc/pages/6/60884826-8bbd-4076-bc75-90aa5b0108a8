@@ -1,0 +1,12 @@
+# Updating your scratchpad
+
+Updating your existing VoodooPad 4 scratchpad to work with VoodooPad 5 is very easy:
+
+1. Open your existing VoodooPad 4 scratchpad in VoodooPad 5. When it asks if you want to back it up before converting it, choose to do so (better safe than sorry).
+2. Create a new page and name it "VPJSPrefixScript" and replace the default contents with this template's VPJSPrefixScript
+3. Create a new page and name it "VPPageEventScript" and replace the default contents with this template's VPPageEventScript
+4. Create a new page and name it "VPWebExportScript" and replace the default contents with this template's VPWebExportScript
+
+A console window may open when you create VPPageEventScript (because the default page event script that VoodooPad creates outputs things to the console). You can close this window.
+
+You can also delete the pages "Script_Autogenerate" and "Script_WebProcess" from your original scratchpad if you wish. Otherwise, you should be ready to use your scratchpad with VoodooPad 5!

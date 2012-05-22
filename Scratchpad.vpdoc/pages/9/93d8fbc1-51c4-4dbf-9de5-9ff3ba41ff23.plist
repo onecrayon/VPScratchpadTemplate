@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>aliases</key>
+	<array/>
+	<key>attributes</key>
+	<dict>
+		<key>documentBackgroundColor</key>
+		<data>
+		BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWE
+		AWMDhAJmZgEBhg==
+		</data>
+		<key>meta.indexedTag</key>
+		<string>index</string>
+	</dict>
+	<key>categories</key>
+	<array>
+		<string>1341394b-289d-4397-9a6a-1cd11041bf4a</string>
+		<string>4f8bc676-6551-4312-aa58-0576ec36bec4</string>
+	</array>
+	<key>createdDate</key>
+	<date>2009-08-31T15:22:06Z</date>
+	<key>dataHash</key>
+	<string>a2ac8d37bee6047d473372bfa605bef59bdfdee5</string>
+	<key>displayName</key>
+	<string>Indices</string>
+	<key>documentBackgroundColor</key>
+	<data>
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMDhAJm
+	ZgEBhg==
+	</data>
+	<key>encrypted</key>
+	<string>No</string>
+	<key>key</key>
+	<string>indices</string>
+	<key>metaValues</key>
+	<dict>
+		<key>indexedTag</key>
+		<string>index</string>
+	</dict>
+	<key>modifiedDate</key>
+	<date>2012-05-22T16:19:13Z</date>
+	<key>shouldHighlightLinks</key>
+	<string>Yes</string>
+	<key>skipOnExport</key>
+	<string>No</string>
+	<key>uti</key>
+	<string>public.utf8-plain-text</string>
+	<key>uuid</key>
+	<string>93d8fbc1-51c4-4dbf-9de5-9ff3ba41ff23</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>allowPluginLinks</key>
+	<true/>
+	<key>bdToBookmarkAliasUpgrade</key>
+	<true/>
+	<key>createPlainTextPages</key>
+	<true/>
+	<key>createSpotlightIndex</key>
+	<true/>
+	<key>dbVersion</key>
+	<string>7</string>
+	<key>localWebAccess</key>
+	<false/>
+	<key>newPageUTI</key>
+	<string>public.utf8-plain-text</string>
+	<key>openWindows</key>
+	<array>
+		<dict>
+			<key>displayUUID</key>
+			<string>0e8de07e-c4b7-4754-bfcf-64422f618b8d</string>
+			<key>drawerOpen</key>
+			<false/>
+			<key>openUUIDProperties</key>
+			<array>
+				<dict>
+					<key>itemUUID</key>
+					<string>c4556fcf-bfdc-4911-9716-d8de78afbc9e</string>
+					<key>rulerVisible</key>
+					<false/>
+					<key>selectedRange</key>
+					<string>{752, 0}</string>
+					<key>visibleGlyphs</key>
+					<string>{0, 904}</string>
+					<key>zoomScale</key>
+					<real>1</real>
+				</dict>
+				<dict>
+					<key>itemUUID</key>
+					<string>39bcdfda-b739-4401-9f49-d1d1376887fd</string>
+				</dict>
+				<dict>
+					<key>itemUUID</key>
+					<string>0e8de07e-c4b7-4754-bfcf-64422f618b8d</string>
+					<key>rulerVisible</key>
+					<false/>
+					<key>selectedRange</key>
+					<string>{0, 0}</string>
+					<key>visibleGlyphs</key>
+					<string>{0, 121}</string>
+					<key>zoomScale</key>
+					<real>1</real>
+				</dict>
+			</array>
+			<key>windowFrame</key>
+			<string>{{6, 69}, {632, 704}}</string>
+		</dict>
+	</array>
+	<key>skIndexVersion</key>
+	<integer>6</integer>
+	<key>updatedFMPageToRealUTIs</key>
+	<true/>
+	<key>updatedSpecialPages3</key>
+	<true/>
+	<key>user.VPWebExportPresets</key>
+	<data>
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhBNOU011dGFibGVEaWN0aW9uYXJ5AISEDE5TRGlj
+	dGlvbmFyeQCEhAhOU09iamVjdACFhAFpAZKEhIQITlNTdHJpbmcBlYQBKwdEZWZhdWx0
+	hpKEk5YDkoSXmA9vdXRwdXREaXJlY3RvcnmGkoSXmCEvVXNlcnMvaWFuYmVjay9EZXNr
+	dG9wL1NjcmF0Y2hwYWSGkoSXmA1maWxlRXh0ZW5zaW9uhpKEl5gEaHRtbIaShJeYCWZv
+	cm1hdFRhZ4aShISECE5TTnVtYmVyAISEB05TVmFsdWUAlYQBKoSWlgKGhoY=
+	</data>
+	<key>uuid</key>
+	<string>fb1b5824-e06b-46cd-aab9-adc97ff0e5aa</string>
+</dict>
+</plist>

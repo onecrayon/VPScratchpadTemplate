@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>aliases</key>
+	<array/>
+	<key>attributes</key>
+	<dict>
+		<key>aliasAddress</key>
+		<string>8daadfea-16f8-42e4-9043-0011af09b2fa</string>
+	</dict>
+	<key>categories</key>
+	<array/>
+	<key>createdDate</key>
+	<date>1970-01-01T00:00:00Z</date>
+	<key>displayName</key>
+	<string>Daily Log Applescript</string>
+	<key>encrypted</key>
+	<string>No</string>
+	<key>key</key>
+	<string>daily log applescript</string>
+	<key>metaValues</key>
+	<dict/>
+	<key>modifiedDate</key>
+	<date>1970-01-01T00:00:00Z</date>
+	<key>shouldHighlightLinks</key>
+	<string>Yes</string>
+	<key>skipOnExport</key>
+	<string>No</string>
+	<key>uti</key>
+	<string>com.fm.page-alias</string>
+	<key>uuid</key>
+	<string>149d2202-2593-496c-ae85-ef4948f446ad</string>
+	<key>version</key>
+	<integer>0</integer>
+</dict>
+</plist>

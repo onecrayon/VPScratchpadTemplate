@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>aliases</key>
+	<array>
+		<string>inboxes index</string>
+	</array>
+	<key>attributes</key>
+	<dict>
+		<key>documentBackgroundColor</key>
+		<data>
+		BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWE
+		AWMDhAJmZgEBhg==
+		</data>
+		<key>meta.indexedTag</key>
+		<string>inbox</string>
+	</dict>
+	<key>categories</key>
+	<array>
+		<string>4f8bc676-6551-4312-aa58-0576ec36bec4</string>
+	</array>
+	<key>createdDate</key>
+	<date>2009-08-31T15:26:35Z</date>
+	<key>dataHash</key>
+	<string>42575c5b8bd569bf4f6acb94f4dd2282ebe00a7e</string>
+	<key>displayName</key>
+	<string>Index: Inboxes</string>
+	<key>documentBackgroundColor</key>
+	<data>
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMDhAJm
+	ZgEBhg==
+	</data>
+	<key>encrypted</key>
+	<string>No</string>
+	<key>key</key>
+	<string>index: inboxes</string>
+	<key>metaValues</key>
+	<dict>
+		<key>indexedTag</key>
+		<string>inbox</string>
+	</dict>
+	<key>modifiedDate</key>
+	<date>2012-05-22T16:18:20Z</date>
+	<key>shouldHighlightLinks</key>
+	<string>Yes</string>
+	<key>skipOnExport</key>
+	<string>No</string>
+	<key>uti</key>
+	<string>public.utf8-plain-text</string>
+	<key>uuid</key>
+	<string>b77c9f91-8e15-43e3-bfae-9edbd25d3313</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>

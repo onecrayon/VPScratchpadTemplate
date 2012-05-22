@@ -1,0 +1,46 @@
+// Utility function
+function process_log_entries(output) {
+	output = output.replace(/([0-9]{1,2}:[0-9]{2} [AP]M)\s+([^\r\n]+)/g, '<dt>$1</dt><dd>$2</dd>');
+	output = output.replace(/(<dt>[\s\S]+?)(?:(?=###)|(?=\* \* \*)|\s*$)/g, '\n<dl>\n$1\n</dl>\n');
+	output = output.replace(/<\/dl>[\n\r]+\* \* \*/g, '</dl>');
+	return output.replace(/<\/dd>[\n\r]+---/g, '</dd>');
+}
+
+function webExportWillMarkupAttributedStringForItem(contextDictionary, item, attributedString) {
+	// Autogenerate our page contents (just in case they are out of date)
+	scratchpadAutogeneratePage(item, document);
+	// Fetch page contents and strip out common edit marker junk
+	var output = item.stringData();
+	output = output.replace(/=+ Edit above this line only =+/, '');
+	output = output.replace(/\*Last updated [^*]+\*/, '');
+	
+	// Page-specific parsing
+	if (item.tagNames().containsObject_('log')) {
+		output = output.replace(/===== (.*?) =====/g, '# Log for $1');
+		output = process_log_entries(output);
+	} else if (item.tagNames().containsObject_('composite') && item.metaValueForKey_('compositedTag') == 'log') {
+		output = output.replace(/===== ([\s\S]+?) =====([\s\S]+?)(?:(?======)|$)/, '### $1$2');
+		output = process_log_entries(output);
+	} else if (item.tagNames().containsObject_('tag')) {
+		output = process_log_entries(output);
+	} else if (item.tagNames().containsObject_('index')) {
+		output = output.replace(/\* ([^\r\n]+)/g, '<li>$1</li>');
+		output = output.replace(/(<li>[\s\S]+<\/li>\s*)$/g, '<div class="columnar"><ul>\n$1\n</ul></div>');
+	}
+	
+	// Universal URL parsing
+	output = output.replace(/(https?:\/\/.+?)([.,()]?[\s<]|\s)/g, '<$1>$2');
+	
+	// Store our data back in the attributed string and return it for parsing
+	attributedString.mutableString().setString_(output);
+	return attributedString;
+}
+
+function webExportWillWriteHTMLForItem(contextDictionary, item, fileName, mutableHTMLString) {
+	// UNUSED
+	return mutableHTMLString;
+}
+
+function webExportWillBegin(contextDictionary) {}
+
+function webExportDidEnd(contextDictionary) {}

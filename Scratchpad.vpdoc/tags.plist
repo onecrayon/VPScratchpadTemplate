@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>1341394b-289d-4397-9a6a-1cd11041bf4a</key>
+	<string>excluded</string>
+	<key>4f8bc676-6551-4312-aa58-0576ec36bec4</key>
+	<string>index</string>
+	<key>76903918-6e8f-416c-9d75-0ba6bc7ecdf0</key>
+	<string>composite</string>
+	<key>b82e719e-2bb4-45d8-bb96-d82a9fc955ad</key>
+	<string>inbox</string>
+</dict>
+</plist>

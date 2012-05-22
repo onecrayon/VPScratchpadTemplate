@@ -1,0 +1,92 @@
+-- For info on installation, see the Applescripts page of the Scratchpad
+
+-- Scratchpad Daily Log
+-- A script by Ian Beck
+-- Part of the VoodooPad Scratchpad bundle
+-- https://github.com/onecrayon/VPScratchpadTemplate
+
+-- Our heavy lifter
+on append_to_log(logText)
+	-- Init
+	set curDate to do shell script "date '+%Y-%m-%d'"
+	set prettyDate to do shell script "date '+%A, %B %d, %Y'"
+	set curTime to do shell script "date '+%l:%M %p'"
+	-- Check to see if we've got text, ask for it if not
+	if logText is equal to "" then
+		set question to display dialog ("Logged at " & curTime & ":") default answer ""
+		set logText to text returned of question
+	end if
+	-- Make sure that the Applescript dialog returned text
+	if logText is equal to "" then
+		beep
+		return false
+	end if
+	
+	-- Find the Scratchpad
+	set scratchDoc to ""
+	tell application "VoodooPad"
+		-- This is the sketchiest stuff, so catch errors
+		try
+			set openDocs to documents
+			repeat with idx from 1 to number of items in openDocs
+				set docName to name of item idx of openDocs
+				if docName contains "scratchpad" then
+					set scratchDoc to item idx of openDocs
+					exit repeat
+				end if
+			end repeat
+			
+			if scratchDoc is not equal to "" then
+				-- Add any textual tags, then set up the timestamp
+				my initialize_text_tags(logText, scratchDoc)
+				set logText to curTime & "    " & logText & return & return & "---" & return & return
+				-- Create page if needed
+				if not (exists page curDate of scratchDoc) then
+					tell scratchDoc to create new page with name curDate with content "===== " & prettyDate & " =====" & return & return
+					tell page curDate of scratchDoc to add category named "log"
+				end if
+				-- Append the log text
+				tell page curDate of scratchDoc to append text logText
+			else
+				-- Couldn't find the scratchpad
+				display dialog "Error: Could not find your scratchpad; please make sure it is open and the only document with 'scratchpad' in the name."
+				return false
+			end if
+		on error errStr number errNum
+			error errStr number errNum
+		end try
+	end tell
+end append_to_log
+
+-- This parses through the text and makes sure all textual tags exist
+on initialize_text_tags(logText, scratchDoc)
+	set tid to AppleScript's text item delimiters
+	set AppleScript's text item delimiters to {" "}
+	set logWords to text items of logText
+	repeat with idx from 1 to number of items in logWords
+		if item idx of logWords starts with "@" then
+			set curTag to item idx of logWords
+			tell application "VoodooPad"
+				try
+					-- If tag page doesn't exist, create it
+					if not (exists page curTag of scratchDoc) then
+						tell scratchDoc to create new page with name curTag with content ""
+						tell page curTag of scratchDoc to add category named "tag"
+					end if
+				on error errStr number errNum
+					error errStr number errNum
+				end try
+			end tell
+		end if
+	end repeat
+	set AppleScript's text item delimiters to tid
+end initialize_text_tags
+
+-- LaunchBar tie-in function
+on handle_string(logText)
+	my append_to_log(logText)
+	open location "x-launchbar:hide"
+end handle_string
+
+-- Run the function just in case we activated the script directly
+my append_to_log("")

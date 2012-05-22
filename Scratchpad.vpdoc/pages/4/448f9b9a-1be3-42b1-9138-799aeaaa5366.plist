@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>aliases</key>
+	<array/>
+	<key>attributes</key>
+	<dict/>
+	<key>categories</key>
+	<array/>
+	<key>createdDate</key>
+	<date>2009-08-31T15:05:45Z</date>
+	<key>dataHash</key>
+	<string>91e9dd928c65eaf8c859d94908c46e1aac9b8de5</string>
+	<key>displayName</key>
+	<string>VoodooPad</string>
+	<key>encrypted</key>
+	<string>No</string>
+	<key>key</key>
+	<string>voodoopad</string>
+	<key>metaValues</key>
+	<dict/>
+	<key>modifiedDate</key>
+	<date>2009-08-31T15:05:45Z</date>
+	<key>shouldHighlightLinks</key>
+	<string>Yes</string>
+	<key>skipOnExport</key>
+	<string>No</string>
+	<key>uti</key>
+	<string>com.fm.url</string>
+	<key>uuid</key>
+	<string>448f9b9a-1be3-42b1-9138-799aeaaa5366</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>

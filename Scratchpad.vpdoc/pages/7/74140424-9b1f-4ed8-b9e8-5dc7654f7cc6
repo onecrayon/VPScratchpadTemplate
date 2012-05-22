@@ -1,0 +1,9 @@
+function pageWasOpened(document, page) {
+	scratchpadAutogeneratePage(page, document);
+}
+
+function pageWasClosed(document, page) {}
+
+function pageWasCreated(document, page) {}
+
+function pageWasDeleted(document, pageName) {}
