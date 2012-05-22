@@ -10,7 +10,7 @@ You can find instructions for how to convert your existing VoodooPad 4 scratchpa
 
 **Requires VoodooPad 5.0 or greater**
 
-To install, either clone this repo or [download here](https://github.com/onecrayon/VPScratchpadTemplate/zipball/master). You can then open the VP5ScratchpadTemplate.vpdoc file in VoodooPad 5 and go from there. The file itself contains full documentation for how to use it (including instructions on updating your pre-existing scratchpad documents from VoodooPad 4).
+To install, either clone this repo or [download here](https://github.com/onecrayon/VPScratchpadTemplate/zipball/master). You can then open the Scratchpad.vpdoc file in VoodooPad 5 and go from there. The file itself contains full documentation for how to use it (including instructions on updating your pre-existing scratchpad documents from VoodooPad 4).
 
 To access your scratchpad via LaunchBar or similar, copy the Daily Log and Quick Note Applescripts somewhere they'll be noticed. For LaunchBar, that likely means `~/Library/Scripts/` or wherever you have configured it to look for Applescripts. If you are using QuickSilver, see the "Applescripts" page in the scratchpad for installation instructions.
 
