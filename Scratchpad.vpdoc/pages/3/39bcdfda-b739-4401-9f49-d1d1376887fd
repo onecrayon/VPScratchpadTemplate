@@ -69,7 +69,7 @@ function scratchpadAutogeneratePage(page, document) {
 			content = pageContents.substring(0, dynSepPos + dynamicSep.length) + lastUpdated + sep;
 		} else {
 			// Set up the page title and top page text
-			content = pageName + "\n" + new Array(pageName.length + 1).join('=') + "\n\n\n\n" + dynamicSep + lastUpdated + sep;
+			content = pageName + "\n" + new Array(pageName.length() + 1).join('=') + "\n\n\n\n" + dynamicSep + lastUpdated + sep;
 		}
 		
 		// composite and index-specific processing
